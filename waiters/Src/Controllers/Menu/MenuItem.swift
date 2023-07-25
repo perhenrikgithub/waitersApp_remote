@@ -14,9 +14,9 @@ class MenuItem: Identifiable {
     private var _price: Double
     private var _isVegetarian: Bool
     private var _isVegan: Bool
-    private var _allergens: [Allergen]
+    private var _allergens: [Allergy]
 
-    init(name: String, description: String, price: Double, isVegetarian: Bool, isVegan: Bool, allergens: [Allergen]) {
+    init(name: String, description: String, price: Double, isVegetarian: Bool, isVegan: Bool, allergens: [Allergy]) {
         _name = name
         _description = description
         _price = price
@@ -70,7 +70,7 @@ class MenuItem: Identifiable {
         }
     }
 
-    var allergens: [Allergen] {
+    var allergens: [Allergy] {
         get {
             return _allergens
         }

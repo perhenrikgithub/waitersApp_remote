@@ -61,15 +61,7 @@ struct MenuView: View {
                         .padding(.top)
 
                     
-                    // makes an array that contains the rawvalue (string) of each allergy in the Allergen enum from MenuItem.swift
-                    let allergenNames: [String] = Allergen.allCases
-                        .filter { allergen in item.allergens.contains(allergen) }
-                        .map { allergen in allergen.rawValue.capitalized }
-
-                    // runs that array of strings and prints them as a list of allergies for this dish
-                    ForEach(allergenNames, id: \.self) { allergenName in
-                        Text("• "+allergenName)
-                    }
+                    
                     
                     Spacer()
                 }

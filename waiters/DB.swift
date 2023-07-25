@@ -21,7 +21,7 @@ class DB: ObservableObject {
             price: 179.50,
             isVegetarian: true,
             isVegan: true,
-            allergens: [.celery, .crustaceans, .eggs, .fish, .sulphitesulfur]
+            allergens: [.celery, .crustaceans, .eggs, .fish, .sulphurDioxide]
         )
 
         // Linguine alle Vongole

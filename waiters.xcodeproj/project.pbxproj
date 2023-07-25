@@ -10,6 +10,7 @@
 		502AB8AD2A64728300D59CF6 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502AB8AC2A64728300D59CF6 /* LoginModel.swift */; };
 		502AB8AF2A6472D800D59CF6 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502AB8AE2A6472D800D59CF6 /* InputField.swift */; };
 		502AB8B12A64730500D59CF6 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502AB8B02A64730500D59CF6 /* LoginButton.swift */; };
+		5085D7952A7056D8000BAFC2 /* AllergyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7942A7056D8000BAFC2 /* AllergyCellView.swift */; };
 		50862DA32A6466D900FBF4A6 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50862DA22A6466D900FBF4A6 /* Logo.swift */; };
 		50862DB22A646DB100FBF4A6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50862DB12A646DB100FBF4A6 /* LoginView.swift */; };
 		509017D82A64655D007F0FFE /* waitersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509017D72A64655D007F0FFE /* waitersApp.swift */; };
@@ -42,6 +43,7 @@
 		502AB8AC2A64728300D59CF6 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		502AB8AE2A6472D800D59CF6 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		502AB8B02A64730500D59CF6 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		5085D7942A7056D8000BAFC2 /* AllergyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyCellView.swift; sourceTree = "<group>"; };
 		50862DA22A6466D900FBF4A6 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		50862DB12A646DB100FBF4A6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		509017D42A64655D007F0FFE /* waiters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waiters.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +292,7 @@
 				50D3B84B2A6C9E8900EC80D9 /* MenuItem.swift */,
 				50D3B84D2A6CA32900EC80D9 /* Menu.swift */,
 				50D3B8532A70203700EC80D9 /* Allergy.swift */,
+				5085D7942A7056D8000BAFC2 /* AllergyCellView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				50D3B81C2A64A02C00EC80D9 /* HamburgerMenu.swift in Sources */,
 				50D3B8192A6495B300EC80D9 /* Header.swift in Sources */,
 				50D3B8472A6C893000EC80D9 /* TableManager.swift in Sources */,
+				5085D7952A7056D8000BAFC2 /* AllergyCellView.swift in Sources */,
 				50D3B8492A6C938600EC80D9 /* lowkeyButton.swift in Sources */,
 				502AB8AD2A64728300D59CF6 /* LoginModel.swift in Sources */,
 				50D3B8452A6C869700EC80D9 /* Table.swift in Sources */,
