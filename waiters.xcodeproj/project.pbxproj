@@ -11,6 +11,7 @@
 		502AB8AF2A6472D800D59CF6 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502AB8AE2A6472D800D59CF6 /* InputField.swift */; };
 		502AB8B12A64730500D59CF6 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502AB8B02A64730500D59CF6 /* LoginButton.swift */; };
 		5038D59D2A707C25009F1839 /* SelecterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5038D59C2A707C25009F1839 /* SelecterCellView.swift */; };
+		5038D59F2A7086D2009F1839 /* addItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5038D59E2A7086D2009F1839 /* addItemButton.swift */; };
 		5085D7952A7056D8000BAFC2 /* AllergyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7942A7056D8000BAFC2 /* AllergyCellView.swift */; };
 		5085D7972A70613B000BAFC2 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7962A70613B000BAFC2 /* MenuItemView.swift */; };
 		5085D7992A7066BA000BAFC2 /* WineBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7982A7066BA000BAFC2 /* WineBottle.swift */; };
@@ -50,6 +51,7 @@
 		502AB8AE2A6472D800D59CF6 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		502AB8B02A64730500D59CF6 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		5038D59C2A707C25009F1839 /* SelecterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecterCellView.swift; sourceTree = "<group>"; };
+		5038D59E2A7086D2009F1839 /* addItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addItemButton.swift; sourceTree = "<group>"; };
 		5085D7942A7056D8000BAFC2 /* AllergyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyCellView.swift; sourceTree = "<group>"; };
 		5085D7962A70613B000BAFC2 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		5085D7982A7066BA000BAFC2 /* WineBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineBottle.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			children = (
 				502AB8B02A64730500D59CF6 /* LoginButton.swift */,
 				50D3B8482A6C938600EC80D9 /* lowkeyButton.swift */,
+				5038D59E2A7086D2009F1839 /* addItemButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				50D3B8352A66DE2100EC80D9 /* SeatingImage.swift in Sources */,
 				502AB8B12A64730500D59CF6 /* LoginButton.swift in Sources */,
 				50D3B8522A6CA54700EC80D9 /* DB.swift in Sources */,
+				5038D59F2A7086D2009F1839 /* addItemButton.swift in Sources */,
 				509017DA2A64655D007F0FFE /* ContentView.swift in Sources */,
 				50D3B8152A64917B00EC80D9 /* UserView.swift in Sources */,
 				50D3B82B2A64CA7A00EC80D9 /* YourTablesTableView.swift in Sources */,

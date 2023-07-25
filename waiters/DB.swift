@@ -27,7 +27,7 @@ class DB: ObservableObject {
                 Allergy(allergyType: .eggs, canBeMadeWithout: true),
                 Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true),
                 Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-            type: [.antipasti]
+            type: [.pasta]
         )
 
         // Linguine alle Vongole
@@ -41,7 +41,7 @@ class DB: ObservableObject {
                 Allergy(allergyType: .celery, canBeMadeWithout: true),
                 Allergy(allergyType: .eggs, canBeMadeWithout: true),
                 Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true)],
-            type: [.antipasti]
+            type: [.pasta]
         )
 
         // Gnocchi al Pesto Genovese
@@ -56,7 +56,7 @@ class DB: ObservableObject {
                 Allergy(allergyType: .eggs, canBeMadeWithout: true),
                 Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true),
                 Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-            type: [.antipasti]
+            type: [.pasta]
         )
 
         // Ravioli di Zucca
@@ -67,7 +67,7 @@ class DB: ObservableObject {
             isVegetarian: true,
             isVegan: false,
             allergens: [Allergy(allergyType: .celery, canBeMadeWithout: true), Allergy(allergyType: .eggs, canBeMadeWithout: true), Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true), Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-            type: [.antipasti]
+            type: [.pasta]
         )
 
         // Orecchiette con Broccoli e Salsiccia
@@ -83,10 +83,10 @@ class DB: ObservableObject {
 
         
         menu.addItem(item1)
-        //menu.addItem(item2)
-        //menu.addItem(item3)
-        //menu.addItem(item4)
-        //menu.addItem(item5)
+        menu.addItem(item2)
+        menu.addItem(item3)
+        menu.addItem(item4)
+        menu.addItem(item5)
         
         
         var wine1 = WineBottle(

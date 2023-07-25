@@ -64,7 +64,28 @@ struct MenuView: View {
                 }
                 .padding(.horizontal, 5)
                 
-                
+                VStack {
+                    Text("Pasta")
+                        .font(.system(size: 32))
+                    ForEach(db.menu.getItems()) { item in
+                        if item.type.contains(MenuItemType.pasta) {
+                            Rectangle()
+                                .frame(height: 1)
+                            VStack (alignment: .leading) {
+                                Text(item.name)
+                                    .font(.system(size: 22))
+                                HStack {
+                                    Text(priceStringifier(price: item.price))
+                                        .font(.system(size: 32))
+                                    Spacer()
+                                    addItemButton()
+                                }
+                                
+                            }
+                            .padding(.horizontal)
+                        }
+                    }
+                }
                 ForEach(db.menu.getItems()) { item in
                     //
                 }
