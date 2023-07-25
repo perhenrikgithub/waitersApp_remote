@@ -23,49 +23,53 @@ func priceStringifier(price: Double) -> String {
 
 struct MenuView: View {
     @StateObject var db = DB()
+    @State var isFilterActive = false
     
     var body: some View {
-        VStack {
-            ForEach(db.menu.getItems()) { item in
-                VStack (alignment: .leading) {
-                    Text(item.name)
-                        .font(.system(size: 32).bold())
-                    Text(item.description)
-                        .foregroundColor(.gray)
-                    Text(priceStringifier(price: item.price))
-                        .font(.system(size: 20))
-                        .padding(.bottom)
-                    
-                    if item.isVegan {
-                        Label("Vegan", systemImage: "carrot.fill")
-                            .font(.system(size: 20))
-                    } else if item.isVegetarian {
-                        Label("Vegetarian", systemImage: "leaf.fill")
-                            .font(.system(size: 20))
-                    } else {
-                        HStack {
-                            ZStack {
-                                Image(systemName: "leaf.fill")
-                                    .font(.system(size: 20))
-                                Image(systemName: "xmark")
-                                    .foregroundColor(.yellow)
-                                    .font(.system(size: 32))
-                            }
-                            Text("Non-vegetarian")
-                                .font(.system(size: 20))
-                        }
+        NavigationView {
+            VStack {
+                Header()
+                HStack {
+                    NavigationLink {
+                        SpecificTableView()
+                    } label: {
+                        Image(systemName: "chevron.left")
                     }
                     
-                    Text("Allergies & preferences")
-                        .font(.system(size: 32))
-                        .padding(.top)
-
-                    
-                    
-                    
                     Spacer()
+                    
+                    HStack {
+                        Text("Filters?")
+                        Image(systemName: "waveform")
+                    }
+                    .onTapGesture {
+                        self.isFilterActive.toggle()
+                    }
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.95)
+                .padding(.horizontal)
+                .font(.system(size: 28))
+                .foregroundColor(.black)
+                
+                ScrollView (.horizontal, showsIndicators: false) {
+                    HStack (spacing: 5) {
+                        SelecterCellView(content: "Main")
+                        SelecterCellView(content: "Pasta")
+                        SelecterCellView(content: "Antipasti")
+                        SelecterCellView(content: "Zuppe")
+                        SelecterCellView(content: "Pizza")
+                        SelecterCellView(content: "Red Wine")
+                        SelecterCellView(content: "White Wine")
+                        SelecterCellView(content: "Non alcholic")
+                    }
+                }
+                .padding(.horizontal, 5)
+                
+                
+                ForEach(db.menu.getItems()) { item in
+                    //
+                }
+                
+                Spacer()
             }
         }
     }

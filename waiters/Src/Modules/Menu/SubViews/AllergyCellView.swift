@@ -17,7 +17,7 @@ struct AllergyCellView: View {
     init(allergy: Allergy) {
         self.allergy = allergy
         if allergy.canBeMadeWithout {
-            self.color = Color(.orange)
+            self.color = .yellow
         } else {
             self.color = Color(.red)
         }
@@ -30,24 +30,22 @@ struct AllergyCellView: View {
             HStack (spacing: 0) {
                 ZStack {
                     Circle()
-                        .padding(12)
+                        .padding(6)
                         .foregroundColor(self.color)
                 }
                 
                 if allergy.allergyName != nil {
                     Text(allergy.allergyName!.prefix(1).capitalized + allergy.allergyName!.dropFirst())
-                        .padding(.trailing, 12)
                 } else {
                     Text(allergy.allergyType.rawValue.prefix(1).capitalized + allergy.allergyType.rawValue.dropFirst())
-                        .padding(.trailing, 12)
                 }
                 
                 Spacer()
             }
             
         }
-        .frame(height: 50)
-        .font(.system(size: 20))
+        .frame(height: 30)
+        .font(.system(size: 16))
         .fixedSize()
     }
 }

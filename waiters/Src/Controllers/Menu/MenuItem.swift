@@ -7,6 +7,18 @@
 
 import Foundation
 
+enum MenuItemType {
+    case main
+    case pasta
+    case antipasti
+    case zuppe
+    case pizza
+    case wines
+    case reds
+    case whites
+    case zero
+}
+
 class MenuItem: Identifiable {
     let id = UUID()
     private var _name: String
@@ -15,15 +27,7 @@ class MenuItem: Identifiable {
     private var _isVegetarian: Bool
     private var _isVegan: Bool
     private var _allergens: [Allergy]
-
-    init(name: String, description: String, price: Double, isVegetarian: Bool, isVegan: Bool, allergens: [Allergy]) {
-        _name = name
-        _description = description
-        _price = price
-        _isVegetarian = isVegetarian
-        _isVegan = isVegan
-        _allergens = allergens
-    }
+    private var _type: [MenuItemType]
 
     var name: String {
         get {
@@ -77,6 +81,25 @@ class MenuItem: Identifiable {
         set {
             _allergens = newValue
         }
+    }
+    
+    var type: [MenuItemType] {
+        get {
+            return _type
+        }
+        set {
+            _type = newValue
+        }
+    }
+    
+    init(name: String, description: String, price: Double, isVegetarian: Bool, isVegan: Bool, allergens: [Allergy], type: [MenuItemType]) {
+        _name = name
+        _description = description
+        _price = price
+        _isVegetarian = isVegetarian
+        _isVegan = isVegan
+        _allergens = allergens
+        _type = type
     }
 }
 
