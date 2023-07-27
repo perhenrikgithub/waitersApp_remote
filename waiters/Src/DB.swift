@@ -2,6 +2,15 @@
 //  DB.swift
 //  waiters
 //
+//  Created by Per Henrik Mork Viken on 27/07/2023.
+//
+
+import Foundation
+
+//
+//  DB.swift
+//  waiters
+//
 //  Created by Per Henrik Mork Viken on 23/07/2023.
 //
 
@@ -92,43 +101,31 @@ class DB: ObservableObject {
         var wine1 = WineBottle(
             name: "Riserva d'Oro Amaranto",
             priceAsBottle: 560.0,
-            description: "A luscious red wine made from a rare blend of Nebbiolo, Sangiovese, and Aglianico grapes, aged for a minimum of 10 years in oak barrels, resulting in a full-bodied wine with rich flavors of black cherries, tobacco, and hints of dark chocolate.")
+            description: "A luscious red wine made from a rare blend of Nebbiolo, Sangiovese, and Aglianico grapes, aged for a minimum of 10 years in oak barrels, resulting in a full-bodied wine with rich flavors of black cherries, tobacco, and hints of dark chocolate.",
+            winetype: .natural
+        )
+            
 
         var wine2 = WineBottle(
             name: "Diamante Bianco Perlato",
             priceAsBottle: 445.0,
-            description: "An exquisite white wine crafted from a secret combination of Garganega, Trebbiano, and Vermentino grapes, aged in stainless steel tanks to preserve its crispness and delicate notes of white peach, honeysuckle, and a touch of minerality.")
+            description: "An exquisite white wine crafted from a secret combination of Garganega, Trebbiano, and Vermentino grapes, aged in stainless steel tanks to preserve its crispness and delicate notes of white peach, honeysuckle, and a touch of minerality.",
+            winetype: .red
+        )
 
         var wine3 = WineBottle(
             name: "Sinfonia di Ribolla Nero",
             priceAsBottle: 335.0,
             priceAsGlass: 145.0,
-            description: "A unique sparkling rosé wine made predominantly from the rare Ribolla Nero grape variety, with a hint of Pinot Noir, offering effervescent bubbles, refreshing acidity, and an elegant bouquet of strawberries, rose petals, and almonds.")
+            description: "A unique sparkling rosé wine made predominantly from the rare Ribolla Nero grape variety, with a hint of Pinot Noir, offering effervescent bubbles, refreshing acidity, and an elegant bouquet of strawberries, rose petals, and almonds.",
+            winetype: .red
+        )
 
-        var wine4 = WineBottle(name: "Aurea Dolcetto Incanto", priceAsBottle: 355.0, description: "A captivating sweet wine made exclusively from Dolcetto grapes, left to overripen on the vine and carefully harvested at peak maturity, boasting velvety textures, flavors of ripe blackberries, plum jam, and a touch of warm spices.")
-
-        var wine5 = WineBottle(name: "Gran Raccolta di Sogno", priceAsBottle: 470.0, description: "A prestigious red blend made from a meticulous selection of Montepulciano, Cabernet Sauvignon, and Merlot grapes, aged for at least 5 years in oak barrels, showcasing a harmonious fusion of black currants, leather, and vanilla.")
-
-        var wine6 = WineBottle(name: "Canto d'Arancia Bruciato", priceAsBottle: 340.0, priceAsGlass: 180.0, description: "An extraordinary orange wine produced from a blend of Ribolla Gialla, Friulano, and Malvasia grapes, fermented on their skins for extended periods, resulting in a wine with vibrant amber hues, aromas of dried apricots, honey, and a touch of smokiness.")
-
-        var wine7 = WineBottle(name: "Principe Nero Passito", priceAsBottle: 290.0, description: "A regal dessert wine crafted from the rare Nero Buono grape, carefully air-dried to concentrate its sugars, delivering an opulent experience of candied cherries, dark chocolate, and a lingering note of cinnamon.")
-
-        var wine8 = WineBottle(name: "Velvetta di Limoncello", priceAsBottle: 310.0, description: "A luxurious limoncello-infused sparkling wine, where the natural flavors of handpicked Amalfi lemons are married with the finest Glera grapes, creating a zesty and creamy sensation on the palate.")
-
-        var wine9 = WineBottle(name: "Opera d'Ombra Malvasia", priceAsBottle: 340.0, description: "A prestigious fortified wine made from the aromatic Malvasia grapes, grown in vineyards sheltered by ancient castle walls, aged in oak casks to achieve a rich, nutty character with hints of dried fruits and caramel.")
-
-        var wine10 = WineBottle(name: "Cielo di Toscana", priceAsBottle: 780.0, description: "A grandiose Super Tuscan wine, produced with a blend of Sangiovese, Cabernet Franc, and Petit Verdot, sourced from sun-drenched vineyards on the rolling hills of Tuscany, embodying a symphony of blackberries, violets, and spices with a velvety finish.")
+        
         
         winecellar.addItem(wine1)
         winecellar.addItem(wine2)
-        //winecellar.addItem(wine3)
-        //winecellar.addItem(wine4)
-        //winecellar.addItem(wine5)
-        //winecellar.addItem(wine6)
-        //winecellar.addItem(wine7)
-        //winecellar.addItem(wine8)
-        //winecellar.addItem(wine9)
-        //winecellar.addItem(wine10)
+        winecellar.addItem(wine3)
 
     }
     

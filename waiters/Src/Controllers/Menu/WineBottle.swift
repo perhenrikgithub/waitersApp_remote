@@ -7,11 +7,19 @@
 
 import Foundation
 
-class WineBottle {
+enum WineType {
+    case red
+    case white
+    case natural
+    case sparkling
+}
+
+class WineBottle: Equatable {
     private var _name: String
     private var _priceAsBottle: Double
     private var _priceAsGlass: Double?
     private var _description: String
+    private var _type: WineType
     
     var name: String {
         // Implicit default getter (reads the value of the property)
@@ -62,11 +70,33 @@ class WineBottle {
         }
     }
     
-    init(name: String, priceAsBottle: Double, priceAsGlass: Double? = nil, description: String) {
+    var type: WineType {
+        // Implicit default getter
+        get {
+            return _type
+        }
+        // Implicit default setter
+        set {
+            _type = newValue
+        }
+    }
+    
+    init(name: String, priceAsBottle: Double, priceAsGlass: Double? = nil, description: String, winetype: WineType) {
         self._name = name
         self._priceAsBottle = priceAsBottle
         self._priceAsGlass = priceAsGlass
         self._description = description
+        self._type = winetype
+    }
+    
+    
+    // Override the equality operator (==) to compare two WineBottle instances
+    static func == (lhs: WineBottle, rhs: WineBottle) -> Bool {
+        return lhs.name == rhs.name &&
+               lhs.priceAsBottle == rhs.priceAsBottle &&
+               lhs.priceAsGlass == rhs.priceAsGlass &&
+               lhs.description == rhs.description &&
+               lhs.type == rhs.type
     }
     
 }

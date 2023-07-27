@@ -44,21 +44,25 @@ struct MenuItemView: View {
                 }
             }
             
-            Text("Allergies & preferences")
+            Text("Allergies")
                 .font(.system(size: 32))
                 .padding(.top)
 
             VStack (alignment: .leading) {
-                ForEach(menuItem.allergens, id: \.self) { allergy in
-                    HStack {
-                        AllergyCellView(allergy: allergy)
-                        Spacer()
+                if menuItem.allergens != nil {
+                    ForEach(menuItem.allergens!, id: \.self) { allergy in
+                        HStack {
+                            AllergyCellView(allergy: allergy)
+                            Spacer()
+                        }
                     }
+                } else {
+                    Text("No allergies :)")
                 }
             }
             .frame(width: UIScreen.main.bounds.width * 0.95)
             
-            Text("Wine Recomandations")
+            Text("Wine Pairings")
                 .font(.system(size: 32))
                 .padding(.top)
             
@@ -71,6 +75,20 @@ struct MenuItemView: View {
 
 struct MenuItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemView(menuItem: DB().menu.items.first!)
+        MenuItemView(menuItem:
+            MenuItem(
+                name: "Pasta Carbonara",
+                description: "A beloved Roman pasta dish, Pasta Carbonara is a perfect combination of traditional guanciale or pancetta, Pecorino Romano cheese, eggs, and black pepper. The sauce is velvety and comforting, and it beautifully coats the al dente spaghetti.",
+                price: 179.50,
+                isVegetarian: true,
+                isVegan: true,
+                allergens: [
+                    Allergy(allergyType: .celery, canBeMadeWithout: true),
+                    Allergy(allergyType: .eggs, canBeMadeWithout: true),
+                    Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true),
+                    Allergy(allergyType: .gluten, canBeMadeWithout: false)],
+                type: [.pasta]
+            )
+        )
     }
 }

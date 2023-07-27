@@ -13,6 +13,10 @@ class Menu {
     init() {
         self.items = []
     }
+    
+    init(menu: [MenuItem]) {
+        self.items = menu
+    }
 
     func addItem(_ item: MenuItem) {
         items.append(item)

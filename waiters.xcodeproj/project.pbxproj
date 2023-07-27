@@ -42,8 +42,8 @@
 		50D3B84C2A6C9E8900EC80D9 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B84B2A6C9E8900EC80D9 /* MenuItem.swift */; };
 		50D3B84E2A6CA32900EC80D9 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B84D2A6CA32900EC80D9 /* Menu.swift */; };
 		50D3B8502A6CA52400EC80D9 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B84F2A6CA52400EC80D9 /* MenuView.swift */; };
-		50D3B8522A6CA54700EC80D9 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B8512A6CA54700EC80D9 /* DB.swift */; };
 		50D3B8542A70203700EC80D9 /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B8532A70203700EC80D9 /* Allergy.swift */; };
+		50E595A82A72E8F30097EB09 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E595A72A72E8F30097EB09 /* DB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,8 +83,8 @@
 		50D3B84B2A6C9E8900EC80D9 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		50D3B84D2A6CA32900EC80D9 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		50D3B84F2A6CA52400EC80D9 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		50D3B8512A6CA54700EC80D9 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		50D3B8532A70203700EC80D9 /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
+		50E595A72A72E8F30097EB09 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +115,7 @@
 				50D3B8362A6A140200EC80D9 /* UI */,
 				50862DA52A646AE600FBF4A6 /* Modules */,
 				50D3B83A2A6C820100EC80D9 /* Controllers */,
+				50E595A72A72E8F30097EB09 /* DB.swift */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -212,7 +213,6 @@
 		509017D62A64655D007F0FFE /* waiters */ = {
 			isa = PBXGroup;
 			children = (
-				50D3B8512A6CA54700EC80D9 /* DB.swift */,
 				50862DA42A646AA200FBF4A6 /* Src */,
 				50862DAE2A646CFA00FBF4A6 /* Resources */,
 				509017D92A64655D007F0FFE /* ContentView.swift */,
@@ -409,13 +409,13 @@
 				50D3B8472A6C893000EC80D9 /* TableManager.swift in Sources */,
 				5038D59D2A707C25009F1839 /* SelecterCellView.swift in Sources */,
 				5085D7952A7056D8000BAFC2 /* AllergyCellView.swift in Sources */,
+				50E595A82A72E8F30097EB09 /* DB.swift in Sources */,
 				50D3B8492A6C938600EC80D9 /* lowkeyButton.swift in Sources */,
 				502AB8AD2A64728300D59CF6 /* LoginModel.swift in Sources */,
 				50D3B8452A6C869700EC80D9 /* Table.swift in Sources */,
 				50D3B8502A6CA52400EC80D9 /* MenuView.swift in Sources */,
 				50D3B8352A66DE2100EC80D9 /* SeatingImage.swift in Sources */,
 				502AB8B12A64730500D59CF6 /* LoginButton.swift in Sources */,
-				50D3B8522A6CA54700EC80D9 /* DB.swift in Sources */,
 				5038D59F2A7086D2009F1839 /* addItemButton.swift in Sources */,
 				509017DA2A64655D007F0FFE /* ContentView.swift in Sources */,
 				50D3B8152A64917B00EC80D9 /* UserView.swift in Sources */,

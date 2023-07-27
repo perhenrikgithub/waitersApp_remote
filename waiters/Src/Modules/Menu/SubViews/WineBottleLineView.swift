@@ -10,14 +10,30 @@ import SwiftUI
 struct WineBottleLineView: View {
     var wineBottle: WineBottle
     var haveTitle: Bool
+    var iconGlassString = "icon_glassOfWine_"
+    var iconBottleString = "icon_bottleOfWine_"
     
     init(wineBottle: WineBottle, haveTitle: Bool = true) {
         self.wineBottle = wineBottle
         self.haveTitle = haveTitle
+        if wineBottle.type == .natural {
+            self.iconGlassString += "natural"
+            self.iconBottleString += "natural"
+        } else if wineBottle.type == .red {
+            self.iconGlassString += "red"
+            self.iconBottleString += "red"
+        } else if wineBottle.type == .sparkling {
+            self.iconGlassString += "sparkling"
+            self.iconBottleString += "sparkling"
+        } else if wineBottle.type == .white {
+            self.iconGlassString += "white"
+            self.iconBottleString += "white"
+        }
     }
     
     var body: some View {
         HStack {
+            
             if self.haveTitle {
                 Text(wineBottle.name)
             }
@@ -31,7 +47,10 @@ struct WineBottleLineView: View {
                         RoundedRectangle(cornerRadius: 1000)
                             .stroke(lineWidth: 2)
                         HStack (spacing: 0) {
-                            Image(systemName: "wineglass")
+                            Image(self.iconGlassString)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20)
                                 .padding(.leading, 10)
                                 .padding(.trailing, 5)
                             
@@ -51,8 +70,16 @@ struct WineBottleLineView: View {
                     RoundedRectangle(cornerRadius: 1000)
                         .stroke(lineWidth: 2)
                     HStack (spacing: 0) {
+                        Image(self.iconBottleString)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                            .padding(.leading, 10)
+                            .padding(.trailing, 5)
+                        
                         Text(priceStringifier(price: wineBottle.priceAsBottle))
-                            .padding(.horizontal, 5)
+                        
+                        Spacer()
                     }
                     .padding(.vertical,5)
                     
@@ -69,15 +96,46 @@ struct WineBottleLineView: View {
 struct WineBottleLineView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            WineBottleLineView(wineBottle: WineBottle(
-                name: "Primo Nebluso",
-                priceAsBottle: 410,
-                priceAsGlass: 115,
-                description: "description"), haveTitle: false)
-            WineBottleLineView(wineBottle: WineBottle(
-                name: "Biano Sinfanio",
-                priceAsBottle: 385,
-                description: "description"))
+            WineBottleLineView(wineBottle:
+                WineBottle(
+                    name: "Primo Nebluso",
+                    priceAsBottle: 410,
+                    priceAsGlass: 115,
+                    description: "description",
+                    winetype: .red
+                ),
+                haveTitle: true
+            )
+            WineBottleLineView(wineBottle:
+                WineBottle(
+                    name: "Biano Sinfanio",
+                    priceAsBottle: 385,
+                    priceAsGlass: 115,
+                    description: "description",
+                    winetype: .white
+                ),
+                haveTitle: true
+            )
+            WineBottleLineView(wineBottle:
+                WineBottle(
+                    name: "Biano Sinfanio",
+                    priceAsBottle: 9999,
+                    priceAsGlass: 999,
+                    description: "description",
+                    winetype: .natural
+                ),
+                haveTitle: true
+            )
+            WineBottleLineView(wineBottle:
+                WineBottle(
+                    name: "Biano Sinfanio",
+                    priceAsBottle: 385,
+                    priceAsGlass: 115,
+                    description: "description",
+                    winetype: .sparkling
+                ),
+                haveTitle: true
+            )
         }
     }
 }

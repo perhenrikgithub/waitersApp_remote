@@ -16,8 +16,10 @@ struct addItemButton: View {
                 .foregroundColor(Color(.red))
             if self.numberOfItems == 0 {
                 HStack (spacing: 5) {
-                    Image(systemName: "bag.fill")
-                    Text("Add To Order")
+//                    Image(systemName: "bag.fill")
+//                    Text("Add To Order")
+                    Image(systemName: "plus")
+                        .font(.system(size: 24))
                 }
                 .onTapGesture {
                     self.numberOfItems += 1

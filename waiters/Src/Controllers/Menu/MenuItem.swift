@@ -26,8 +26,9 @@ class MenuItem: Identifiable {
     private var _price: Double
     private var _isVegetarian: Bool
     private var _isVegan: Bool
-    private var _allergens: [Allergy]
-    private var _type: [MenuItemType]
+    private var _allergens: [Allergy]?
+    private var _type: [MenuItemType]?
+    private var _winePairings: [WineBottle]?
 
     var name: String {
         get {
@@ -74,16 +75,16 @@ class MenuItem: Identifiable {
         }
     }
 
-    var allergens: [Allergy] {
+    var allergens: [Allergy]? {
         get {
-            return _allergens
+            return _allergens!
         }
         set {
             _allergens = newValue
         }
     }
     
-    var type: [MenuItemType] {
+    var type: [MenuItemType]? {
         get {
             return _type
         }
@@ -92,7 +93,25 @@ class MenuItem: Identifiable {
         }
     }
     
-    init(name: String, description: String, price: Double, isVegetarian: Bool, isVegan: Bool, allergens: [Allergy], type: [MenuItemType]) {
+    var winePairings: [WineBottle]? {
+        get {
+            return _winePairings!
+        }
+        set {
+            _winePairings = newValue
+        }
+    }
+    
+    init(
+        name: String,
+        description: String,
+        price: Double,
+        isVegetarian: Bool,
+        isVegan: Bool,
+        allergens: [Allergy] = [],
+        type: [MenuItemType] = [],
+        winePairings: [WineBottle] = []
+    ) {
         _name = name
         _description = description
         _price = price
@@ -100,6 +119,63 @@ class MenuItem: Identifiable {
         _isVegan = isVegan
         _allergens = allergens
         _type = type
+        _winePairings = winePairings
+    }
+    
+    func addAllergy(allergy: Allergy) {
+        if _allergens != nil {
+            _allergens?.append(allergy)
+        } else {
+            _allergens = [allergy]
+        }
+    }
+    
+    func removeAllergy(allergy: Allergy) {
+        if let index = _allergens?.firstIndex(of: allergy) {
+            _allergens?.remove(at: index)
+            // Check if the array is empty after removing an element, if true: then set it back to nil
+            if _allergens?.isEmpty ?? true {
+                _allergens = nil
+            }
+        }
+    }
+
+    
+    func addMenuType(type: MenuItemType) {
+        if _type != nil {
+            _type?.append(type)
+        } else {
+            _type = [type]
+        }
+    }
+    
+    func removeMenuType(type: MenuItemType) {
+        if let index = _type?.firstIndex(of: type) {
+            _type?.remove(at: index)
+            // Check if the array is empty after removing an element, if true: then set it back to nil
+            if _type?.isEmpty ?? true {
+                _type = nil
+            }
+        }
+    }
+
+    
+    func addWinePairing(wineBottle: WineBottle) {
+        if _winePairings != nil {
+            _winePairings?.append(wineBottle)
+        } else {
+            _winePairings = [wineBottle]
+        }
+    }
+    
+    func removeWinePairing(wineBottle: WineBottle) {
+        if let index = _winePairings?.firstIndex(of: wineBottle) {
+            _winePairings?.remove(at: index)
+            // Check if the array is empty after removing an element, if true: then set it back to nil
+            if _winePairings?.isEmpty ?? true {
+                _winePairings = nil
+            }
+        }
     }
 }
 

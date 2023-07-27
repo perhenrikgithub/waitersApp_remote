@@ -35,6 +35,9 @@ struct WineBottleView_Previews: PreviewProvider {
         WineBottleView(wineBottle: WineBottle(
             name: "Riserva d'Oro Amaranto",
             priceAsBottle: 560.0,
-            description: "A luscious red wine made from a rare blend of Nebbiolo, Sangiovese, and Aglianico grapes, aged for a minimum of 10 years in oak barrels, resulting in a full-bodied wine with rich flavors of black cherries, tobacco, and hints of dark chocolate."))
+            description: "A luscious red wine made from a rare blend of Nebbiolo, Sangiovese, and Aglianico grapes, aged for a minimum of 10 years in oak barrels, resulting in a full-bodied wine with rich flavors of black cherries, tobacco, and hints of dark chocolate.",
+            winetype: .red
+        )
+        )
     }
 }
