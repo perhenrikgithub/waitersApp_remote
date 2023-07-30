@@ -14,7 +14,7 @@ class Menu {
         self.items = []
     }
     
-    init(menu: [MenuItem]) {
+    init(menu: [FoodItem]) {
         self.items = menu
     }
 

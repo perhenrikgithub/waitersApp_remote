@@ -12,36 +12,51 @@ enum WineType {
     case white
     case natural
     case sparkling
+    case rose
 }
 
-class WineBottle: Equatable {
-    private var _name: String
+class WineBottle: DrinkItem, Equatable {
+    private var _countryOfOrigin: String?
     private var _priceAsBottle: Double
     private var _priceAsGlass: Double?
-    private var _description: String
     private var _type: WineType
     
-    var name: String {
-        // Implicit default getter (reads the value of the property)
+    init(
+        // winebottle attributes
+        countryOfOrigin: String?,
+        priceAsBottle: Double,
+        priceAsGlass: Double? = nil,
+        winetype: WineType,
+        // super attributes
+        alcoholContent: Double,
+        name: String,
+        description: String,
+        price: Double,
+        allergens: [Allergy]? = nil
+    ) {
+        self._priceAsBottle = priceAsBottle
+        self._priceAsGlass = priceAsGlass
+        self._type = winetype
+        self._countryOfOrigin = countryOfOrigin
+        
+        super.init(
+            alcoholContent: alcoholContent,
+            name: name,
+            description: description,
+            price: price,
+            allergens: allergens
+        )
+    }
+    
+    var countryOfOrigin: String? {
         get {
-            return _name
+            return _countryOfOrigin
         }
-        // Implicit default setter (modifies the value of the property)
         set {
-            _name = newValue
+            _countryOfOrigin = newValue
         }
     }
     
-    var description: String {
-        // Implicit default getter
-        get {
-            return _description
-        }
-        // Implicit default setter
-        set {
-            _description = newValue
-        }
-    }
     
     var priceAsBottle: Double {
         // Implicit default getter
@@ -79,14 +94,6 @@ class WineBottle: Equatable {
         set {
             _type = newValue
         }
-    }
-    
-    init(name: String, priceAsBottle: Double, priceAsGlass: Double? = nil, description: String, winetype: WineType) {
-        self._name = name
-        self._priceAsBottle = priceAsBottle
-        self._priceAsGlass = priceAsGlass
-        self._description = description
-        self._type = winetype
     }
     
     

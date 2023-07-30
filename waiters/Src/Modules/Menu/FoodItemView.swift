@@ -1,5 +1,5 @@
 //
-//  MenuItemView.swift
+//  FoodItemView.swift
 //  waiters
 //
 //  Created by Per Henrik Mork Viken on 25/07/2023.
@@ -7,27 +7,29 @@
 
 import SwiftUI
 
-struct MenuItemView: View {
-    var menuItem: MenuItem
+struct FoodItemView: View {
+    var foodItem: FoodItem
     
-    init(menuItem: MenuItem) {
-        self.menuItem = menuItem
+    init(foodItem: FoodItem) {
+        self.foodItem = foodItem
     }
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(menuItem.name)
+            Text(foodItem.name)
                 .font(.system(size: 32).bold())
-            Text(menuItem.description)
-                .foregroundColor(.gray)
-            Text(priceStringifier(price: menuItem.price))
+            if foodItem.description != nil {
+                Text(foodItem.description!)
+                    .foregroundColor(.gray)
+            }
+            Text(priceStringifier(price: foodItem.price))
                 .font(.system(size: 20))
                 .padding(.bottom)
             
-            if menuItem.isVegan {
+            if foodItem.isVegan {
                 Label("Vegan", systemImage: "carrot.fill")
                     .font(.system(size: 20))
-            } else if menuItem.isVegetarian {
+            } else if foodItem.isVegetarian {
                 Label("Vegetarian", systemImage: "leaf.fill")
                     .font(.system(size: 20))
             } else {
@@ -49,8 +51,8 @@ struct MenuItemView: View {
                 .padding(.top)
 
             VStack (alignment: .leading) {
-                if menuItem.allergens != nil {
-                    ForEach(menuItem.allergens!, id: \.self) { allergy in
+                if foodItem.allergens != nil {
+                    ForEach(foodItem.allergens!, id: \.self) { allergy in
                         HStack {
                             AllergyCellView(allergy: allergy)
                             Spacer()
@@ -73,21 +75,21 @@ struct MenuItemView: View {
     }
 }
 
-struct MenuItemView_Previews: PreviewProvider {
+struct FoodItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemView(menuItem:
-            MenuItem(
-                name: "Pasta Carbonara",
-                description: "A beloved Roman pasta dish, Pasta Carbonara is a perfect combination of traditional guanciale or pancetta, Pecorino Romano cheese, eggs, and black pepper. The sauce is velvety and comforting, and it beautifully coats the al dente spaghetti.",
-                price: 179.50,
-                isVegetarian: true,
-                isVegan: true,
+        FoodItemView(foodItem:
+            FoodItem(
+                isVegetarian: false,
+                isVegan: false,
+                type: .pasta,
+                course: .main,
+                name: "Truffle Carbonara",
+                description: "Handcrafted truffle-infused pasta with organic eggs, aged Pecorino Romano, crispy pancetta, and freshly ground black truffle.",
+                price: 27.99,
                 allergens: [
-                    Allergy(allergyType: .celery, canBeMadeWithout: true),
-                    Allergy(allergyType: .eggs, canBeMadeWithout: true),
-                    Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true),
-                    Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-                type: [.pasta]
+                    Allergy(allergyType: .gluten, canBeMadeWithout: true),
+                    Allergy(allergyType: .eggs, canBeMadeWithout: false)
+                ]
             )
         )
     }

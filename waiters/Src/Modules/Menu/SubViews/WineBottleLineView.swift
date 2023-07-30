@@ -28,6 +28,9 @@ struct WineBottleLineView: View {
         } else if wineBottle.type == .white {
             self.iconGlassString += "white"
             self.iconBottleString += "white"
+        } else if wineBottle.type == .rose {
+            self.iconGlassString += "rose"
+            self.iconBottleString += "rose"
         }
     }
     
@@ -96,46 +99,36 @@ struct WineBottleLineView: View {
 struct WineBottleLineView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            WineBottleLineView(wineBottle:
-                WineBottle(
-                    name: "Primo Nebluso",
-                    priceAsBottle: 410,
-                    priceAsGlass: 115,
-                    description: "description",
-                    winetype: .red
-                ),
-                haveTitle: true
-            )
-            WineBottleLineView(wineBottle:
-                WineBottle(
-                    name: "Biano Sinfanio",
-                    priceAsBottle: 385,
-                    priceAsGlass: 115,
-                    description: "description",
-                    winetype: .white
-                ),
-                haveTitle: true
-            )
-            WineBottleLineView(wineBottle:
-                WineBottle(
-                    name: "Biano Sinfanio",
-                    priceAsBottle: 9999,
-                    priceAsGlass: 999,
-                    description: "description",
-                    winetype: .natural
-                ),
-                haveTitle: true
-            )
-            WineBottleLineView(wineBottle:
-                WineBottle(
-                    name: "Biano Sinfanio",
-                    priceAsBottle: 385,
-                    priceAsGlass: 115,
-                    description: "description",
-                    winetype: .sparkling
-                ),
-                haveTitle: true
-            )
+            WineBottleLineView(wineBottle: WineBottle(
+                countryOfOrigin: "France",
+                priceAsBottle: 25.99,
+                winetype: .red,
+                alcoholContent: 13.5,
+                name: "Château de Bordeaux",
+                description: "A rich and smooth Bordeaux red wine with fruity notes.",
+                price: 29.99
+            ))
+            
+            WineBottleLineView(wineBottle: WineBottle(
+                countryOfOrigin: "Italy",
+                priceAsBottle: 18.75,
+                winetype: .white,
+                alcoholContent: 12.0,
+                name: "Pinot Grigio",
+                description: "A crisp and refreshing Italian white wine with hints of citrus.",
+                price: 22.99
+            ))
+            
+            WineBottleLineView(wineBottle: WineBottle(
+                countryOfOrigin: "Spain",
+                priceAsBottle: 14.50,
+                winetype: .rose,
+                alcoholContent: 11.5,
+                name: "Rosé Royale",
+                description: "A delightful Spanish rosé with floral aromas and a soft finish.",
+                price: 17.99
+            ))
+
         }
     }
 }

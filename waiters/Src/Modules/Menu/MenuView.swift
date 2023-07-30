@@ -22,66 +22,13 @@ func priceStringifier(price: Double) -> String {
 
 
 struct MenuView: View {
-    @StateObject var db = DB()
     @State var isFilterActive = false
     
-    var menu = Menu(menu: [
-        MenuItem(
-            name: "Pasta Carbonara",
-            description: "A beloved Roman pasta dish, Pasta Carbonara is a perfect combination of traditional guanciale or pancetta, Pecorino Romano cheese, eggs, and black pepper. The sauce is velvety and comforting, and it beautifully coats the al dente spaghetti.",
-            price: 179.50,
-            isVegetarian: true,
-            isVegan: true,
-            allergens: [
-                Allergy(allergyType: .celery, canBeMadeWithout: true),
-                Allergy(allergyType: .eggs, canBeMadeWithout: true),
-                Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true),
-                Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-            type: [.pasta]
-        ),
-        MenuItem(
-            name: "Linguine alle Vongole",
-            description: "This delightful seafood pasta originates from Naples. Linguine alle Vongole is a delicious medley of linguine pasta and fresh clams cooked with garlic, white wine, cherry tomatoes, and parsley. It offers a taste of the sea with every bite.",
-            price: 199.00,
-            isVegetarian: false,
-            isVegan: false,
-            allergens: [
-                Allergy(allergyType: .celery, canBeMadeWithout: true),
-                Allergy(allergyType: .eggs, canBeMadeWithout: true),
-                Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true)],
-            type: [.pasta]
-        ), MenuItem(
-            name: "Gnocchi al Pesto Genovese",
-            description: "Soft potato gnocchi tossed in a vibrant green sauce made with fresh basil leaves, pine nuts, garlic, olive oil, and Parmigiano-Reggiano cheese. Gnocchi al Pesto Genovese is a delightful and aromatic dish that captures the essence of Genoa, Italy.",
-            price: 185.00,
-            isVegetarian: true,
-            isVegan: false,
-            allergens: [
-                Allergy(allergyType: .celery, canBeMadeWithout: true),
-                Allergy(allergyType: .eggs, canBeMadeWithout: true),
-                Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true),
-                Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-            type: [.pasta]
-        ),
-        MenuItem(
-            name: "Ravioli di Zucca",
-            description: "These exquisite ravioli are filled with a luscious mixture of roasted butternut squash, ricotta cheese, and a touch of nutmeg. The dish is completed with a sage-infused brown butter sauce and a sprinkling of toasted pine nuts.",
-            price: 195.50,
-            isVegetarian: true,
-            isVegan: false,
-            allergens: [Allergy(allergyType: .celery, canBeMadeWithout: true), Allergy(allergyType: .eggs, canBeMadeWithout: true), Allergy(allergyType: .sesameSeeds, canBeMadeWithout: true), Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-            type: [.pasta]
-        ),
-        MenuItem(
-            name: "Orecchiette con Broccoli e Salsiccia",
-            description: "Hailing from the Puglia region of Italy, Orecchiette con Broccoli e Salsiccia is a hearty dish that combines ear-shaped pasta with sautéed broccoli, savory Italian sausage, garlic, and a touch of chili flakes. It's a burst of flavors in every mouthful.",
-            price: 189.75,
-            isVegetarian: false,
-            isVegan: false,
-            allergens: [Allergy(allergyType: .gluten, canBeMadeWithout: false)],
-            type: [.antipasti]
-        )
-    ])
+    var menu: Menu
+    
+    init(menu: Menu) {
+        self.menu = menu
+    }
     
     var body: some View {
         NavigationView {
@@ -110,39 +57,41 @@ struct MenuView: View {
 
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack (spacing: 5) {
-                        SelecterCellView(content: "Main")
-                        SelecterCellView(content: "Pasta")
-                        SelecterCellView(content: "Antipasti")
-                        SelecterCellView(content: "Zuppe")
-                        SelecterCellView(content: "Pizza")
-                        SelecterCellView(content: "Red Wine")
-                        SelecterCellView(content: "White Wine")
-                        SelecterCellView(content: "Non alcholic")
+                        ForEach(FoodItemType.allCases, id: \.rawValue) { foodItemType in
+                            SelecterCellView(content: foodItemType.rawValue)
+                        }
+                        
+                        // todo: add drinks to menu
+                        
+                        
                     }
                 }
                 .padding(.horizontal, 5)
                 
                 ScrollView {
-                    VStack (spacing: 0) {
-                        Text("Pasta")
-                            .font(.system(size: 32))
+                    ForEach(FoodItemType.allCases, id: \.rawValue) { foodItemType in
                         
-                        ForEach(self.menu.getItems()) { item in
-                            if item.type != nil {
-                                if item.type!.contains(MenuItemType.pasta) {
-                                    VStack (alignment: .leading, spacing: 0) {
-                                        Text(item.name)
-                                            .font(.system(size: 22))
-                                        HStack {
-                                            Text(priceStringifier(price: item.price))
-                                                .font(.system(size: 32))
-                                            Spacer()
-                                            addItemButton()
+                        VStack (spacing: 0) {
+                            Text(foodItemType.rawValue)
+                                .font(.system(size: 32))
+                            
+                            ForEach(self.menu.getItems()) { item in
+                                if let foodItem = item as? FoodItem {
+                                    if foodItem.type == foodItemType {
+                                        VStack (alignment: .leading, spacing: 0) {
+                                            Text(foodItem.name)
+                                                .font(.system(size: 22))
+                                            HStack {
+                                                Text(priceStringifier(price: foodItem.price))
+                                                    .font(.system(size: 32))
+                                                Spacer()
+                                                addItemButton()
+                                            }
+
                                         }
-        
+                                        .padding()
+                                        .overlay(Divider().background(Color.black), alignment: .top)
                                     }
-                                    .padding()
-                                    .overlay(Divider().background(Color.black), alignment: .top)
                                 }
                             }
                         }
@@ -155,6 +104,93 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        let menu = Menu(menu: [
+            FoodItem(
+                isVegetarian: false,
+                isVegan: false,
+                type: .pasta,
+                course: .main,
+                name: "Truffle Carbonara",
+                description: "Handcrafted truffle-infused pasta with organic eggs, aged Pecorino Romano, crispy pancetta, and freshly ground black truffle.",
+                price: 27.99,
+                allergens: [
+                    Allergy(allergyType: .gluten, canBeMadeWithout: true),
+                    Allergy(allergyType: .eggs, canBeMadeWithout: true)
+                ]
+            ),
+            FoodItem(
+                isVegetarian: true,
+                isVegan: false,
+                type: .antipasti,
+                course: .appetizer,
+                name: "Gourmet Antipasti Platter",
+                description: "An exquisite selection of imported Italian cheeses, artisanal cured meats, marinated olives, grilled artichokes, and sun-dried tomatoes.",
+                price: 34.99
+            ),
+            FoodItem(
+                isVegetarian: true,
+                isVegan: true,
+                type: .zuppe,
+                course: .appetizer,
+                name: "Velvety Tomato Bisque",
+                description: "A velvety tomato bisque made from San Marzano tomatoes, drizzled with cold-pressed olive oil, and garnished with fresh basil leaves.",
+                price: 19.99,
+                allergens: [Allergy(allergyType: .gluten, canBeMadeWithout: true)]
+            ),
+            FoodItem(
+                isVegetarian: true,
+                isVegan: false,
+                type: .pizza,
+                course: .main,
+                name: "Truffle Burrata Margherita Pizza",
+                description: "A divine thin-crust pizza topped with San Marzano tomato sauce, creamy burrata cheese, fresh basil, and a hint of aromatic black truffle oil.",
+                price: 42.99,
+                allergens: [Allergy(allergyType: .gluten, canBeMadeWithout: true)]
+            ),
+            FoodItem(
+                isVegetarian: false,
+                isVegan: false,
+                type: .pasta,
+                course: .main,
+                name: "Truffle Carbonara",
+                description: "Handcrafted truffle-infused pasta with organic eggs, aged Pecorino Romano, crispy pancetta, and freshly ground black truffle.",
+                price: 27.99,
+                allergens: [
+                    Allergy(allergyType: .gluten, canBeMadeWithout: true),
+                    Allergy(allergyType: .eggs, canBeMadeWithout: true)
+                ]
+            ),
+            FoodItem(
+                isVegetarian: true,
+                isVegan: false,
+                type: .antipasti,
+                course: .appetizer,
+                name: "Gourmet Antipasti Platter",
+                description: "An exquisite selection of imported Italian cheeses, artisanal cured meats, marinated olives, grilled artichokes, and sun-dried tomatoes.",
+                price: 34.99
+            ),
+            FoodItem(
+                isVegetarian: true,
+                isVegan: true,
+                type: .zuppe,
+                course: .appetizer,
+                name: "Velvety Tomato Bisque",
+                description: "A velvety tomato bisque made from San Marzano tomatoes, drizzled with cold-pressed olive oil, and garnished with fresh basil leaves.",
+                price: 19.99,
+                allergens: [Allergy(allergyType: .gluten, canBeMadeWithout: true)]
+            ),
+            FoodItem(
+                isVegetarian: true,
+                isVegan: false,
+                type: .pizza,
+                course: .main,
+                name: "Truffle Burrata Margherita Pizza",
+                description: "A divine thin-crust pizza topped with San Marzano tomato sauce, creamy burrata cheese, fresh basil, and a hint of aromatic black truffle oil.",
+                price: 42.99,
+                allergens: [Allergy(allergyType: .gluten, canBeMadeWithout: true)]
+            )
+        ]
+        )
+        MenuView(menu: menu)
     }
 }

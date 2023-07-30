@@ -11,7 +11,7 @@ import SwiftUI
 struct waitersApp: App {
     var body: some Scene {
         WindowGroup {
-            WineBottleView(wineBottle: DB().winecellar.items.first!)
+            LoginView()
         }
     }
 }

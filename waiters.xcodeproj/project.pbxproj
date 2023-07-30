@@ -13,7 +13,7 @@
 		5038D59D2A707C25009F1839 /* SelecterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5038D59C2A707C25009F1839 /* SelecterCellView.swift */; };
 		5038D59F2A7086D2009F1839 /* addItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5038D59E2A7086D2009F1839 /* addItemButton.swift */; };
 		5085D7952A7056D8000BAFC2 /* AllergyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7942A7056D8000BAFC2 /* AllergyCellView.swift */; };
-		5085D7972A70613B000BAFC2 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7962A70613B000BAFC2 /* MenuItemView.swift */; };
+		5085D7972A70613B000BAFC2 /* FoodItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7962A70613B000BAFC2 /* FoodItemView.swift */; };
 		5085D7992A7066BA000BAFC2 /* WineBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D7982A7066BA000BAFC2 /* WineBottle.swift */; };
 		5085D79B2A7066C1000BAFC2 /* WineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D79A2A7066C1000BAFC2 /* WineList.swift */; };
 		5085D79D2A70682E000BAFC2 /* WineBottleLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085D79C2A70682E000BAFC2 /* WineBottleLineView.swift */; };
@@ -24,6 +24,9 @@
 		509017DA2A64655D007F0FFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509017D92A64655D007F0FFE /* ContentView.swift */; };
 		509017DC2A64655E007F0FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509017DB2A64655E007F0FFE /* Assets.xcassets */; };
 		509017DF2A64655E007F0FFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509017DE2A64655E007F0FFE /* Preview Assets.xcassets */; };
+		50A5BE1D2A76E09600917F01 /* BeerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5BE1C2A76E09600917F01 /* BeerItem.swift */; };
+		50B5946F2A76D54D006B3927 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5946E2A76D54D006B3927 /* FoodItem.swift */; };
+		50B594712A76D998006B3927 /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B594702A76D998006B3927 /* DrinkItem.swift */; };
 		50D3B8152A64917B00EC80D9 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B8142A64917B00EC80D9 /* UserView.swift */; };
 		50D3B8172A64955A00EC80D9 /* TablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B8162A64955A00EC80D9 /* TablesView.swift */; };
 		50D3B8192A6495B300EC80D9 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B8182A6495B300EC80D9 /* Header.swift */; };
@@ -43,7 +46,6 @@
 		50D3B84E2A6CA32900EC80D9 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B84D2A6CA32900EC80D9 /* Menu.swift */; };
 		50D3B8502A6CA52400EC80D9 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B84F2A6CA52400EC80D9 /* MenuView.swift */; };
 		50D3B8542A70203700EC80D9 /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B8532A70203700EC80D9 /* Allergy.swift */; };
-		50E595A82A72E8F30097EB09 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E595A72A72E8F30097EB09 /* DB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +55,7 @@
 		5038D59C2A707C25009F1839 /* SelecterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecterCellView.swift; sourceTree = "<group>"; };
 		5038D59E2A7086D2009F1839 /* addItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addItemButton.swift; sourceTree = "<group>"; };
 		5085D7942A7056D8000BAFC2 /* AllergyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyCellView.swift; sourceTree = "<group>"; };
-		5085D7962A70613B000BAFC2 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		5085D7962A70613B000BAFC2 /* FoodItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemView.swift; sourceTree = "<group>"; };
 		5085D7982A7066BA000BAFC2 /* WineBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineBottle.swift; sourceTree = "<group>"; };
 		5085D79A2A7066C1000BAFC2 /* WineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineList.swift; sourceTree = "<group>"; };
 		5085D79C2A70682E000BAFC2 /* WineBottleLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineBottleLineView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,9 @@
 		509017D92A64655D007F0FFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		509017DB2A64655E007F0FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		509017DE2A64655E007F0FFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50A5BE1C2A76E09600917F01 /* BeerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerItem.swift; sourceTree = "<group>"; };
+		50B5946E2A76D54D006B3927 /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		50B594702A76D998006B3927 /* DrinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItem.swift; sourceTree = "<group>"; };
 		50D3B8142A64917B00EC80D9 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		50D3B8162A64955A00EC80D9 /* TablesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesView.swift; sourceTree = "<group>"; };
 		50D3B8182A6495B300EC80D9 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -84,7 +89,6 @@
 		50D3B84D2A6CA32900EC80D9 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		50D3B84F2A6CA52400EC80D9 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		50D3B8532A70203700EC80D9 /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
-		50E595A72A72E8F30097EB09 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,6 @@
 				50D3B8362A6A140200EC80D9 /* UI */,
 				50862DA52A646AE600FBF4A6 /* Modules */,
 				50D3B83A2A6C820100EC80D9 /* Controllers */,
-				50E595A72A72E8F30097EB09 /* DB.swift */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -173,7 +176,7 @@
 				5038D59B2A707907009F1839 /* SubViews */,
 				5085D79E2A706F63000BAFC2 /* WineBottleView.swift */,
 				50D3B84F2A6CA52400EC80D9 /* MenuView.swift */,
-				5085D7962A70613B000BAFC2 /* MenuItemView.swift */,
+				5085D7962A70613B000BAFC2 /* FoodItemView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -227,6 +230,50 @@
 				509017DE2A64655E007F0FFE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50A5BE172A76E01900917F01 /* MenuItem */ = {
+			isa = PBXGroup;
+			children = (
+				50A5BE1B2A76E05B00917F01 /* SubClasses */,
+				50D3B84B2A6C9E8900EC80D9 /* MenuItem.swift */,
+			);
+			path = MenuItem;
+			sourceTree = "<group>";
+		};
+		50A5BE182A76E03E00917F01 /* FoodItem */ = {
+			isa = PBXGroup;
+			children = (
+				50B5946E2A76D54D006B3927 /* FoodItem.swift */,
+			);
+			path = FoodItem;
+			sourceTree = "<group>";
+		};
+		50A5BE192A76E04A00917F01 /* DrinkItem */ = {
+			isa = PBXGroup;
+			children = (
+				50A5BE1A2A76E05100917F01 /* SubClasses */,
+				50B594702A76D998006B3927 /* DrinkItem.swift */,
+			);
+			path = DrinkItem;
+			sourceTree = "<group>";
+		};
+		50A5BE1A2A76E05100917F01 /* SubClasses */ = {
+			isa = PBXGroup;
+			children = (
+				5085D7982A7066BA000BAFC2 /* WineBottle.swift */,
+				50A5BE1C2A76E09600917F01 /* BeerItem.swift */,
+			);
+			path = SubClasses;
+			sourceTree = "<group>";
+		};
+		50A5BE1B2A76E05B00917F01 /* SubClasses */ = {
+			isa = PBXGroup;
+			children = (
+				50A5BE182A76E03E00917F01 /* FoodItem */,
+				50A5BE192A76E04A00917F01 /* DrinkItem */,
+			);
+			path = SubClasses;
 			sourceTree = "<group>";
 		};
 		50D3B81F2A64C3D900EC80D9 /* SubViews */ = {
@@ -317,11 +364,10 @@
 		50D3B84A2A6C9E5B00EC80D9 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				50D3B84B2A6C9E8900EC80D9 /* MenuItem.swift */,
+				50A5BE172A76E01900917F01 /* MenuItem */,
 				50D3B84D2A6CA32900EC80D9 /* Menu.swift */,
 				50D3B8532A70203700EC80D9 /* Allergy.swift */,
 				5085D79A2A7066C1000BAFC2 /* WineList.swift */,
-				5085D7982A7066BA000BAFC2 /* WineBottle.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -400,8 +446,9 @@
 				50D3B8422A6C842600EC80D9 /* Users.swift in Sources */,
 				50D3B82D2A660A9100EC80D9 /* StatusCell.swift in Sources */,
 				5085D79F2A706F63000BAFC2 /* WineBottleView.swift in Sources */,
+				50B5946F2A76D54D006B3927 /* FoodItem.swift in Sources */,
 				50D3B8292A64CA6200EC80D9 /* AddTableTableView.swift in Sources */,
-				5085D7972A70613B000BAFC2 /* MenuItemView.swift in Sources */,
+				5085D7972A70613B000BAFC2 /* FoodItemView.swift in Sources */,
 				50D3B81C2A64A02C00EC80D9 /* HamburgerMenu.swift in Sources */,
 				5085D7992A7066BA000BAFC2 /* WineBottle.swift in Sources */,
 				5085D79D2A70682E000BAFC2 /* WineBottleLineView.swift in Sources */,
@@ -409,7 +456,6 @@
 				50D3B8472A6C893000EC80D9 /* TableManager.swift in Sources */,
 				5038D59D2A707C25009F1839 /* SelecterCellView.swift in Sources */,
 				5085D7952A7056D8000BAFC2 /* AllergyCellView.swift in Sources */,
-				50E595A82A72E8F30097EB09 /* DB.swift in Sources */,
 				50D3B8492A6C938600EC80D9 /* lowkeyButton.swift in Sources */,
 				502AB8AD2A64728300D59CF6 /* LoginModel.swift in Sources */,
 				50D3B8452A6C869700EC80D9 /* Table.swift in Sources */,
@@ -420,6 +466,7 @@
 				509017DA2A64655D007F0FFE /* ContentView.swift in Sources */,
 				50D3B8152A64917B00EC80D9 /* UserView.swift in Sources */,
 				50D3B82B2A64CA7A00EC80D9 /* YourTablesTableView.swift in Sources */,
+				50A5BE1D2A76E09600917F01 /* BeerItem.swift in Sources */,
 				50D3B8172A64955A00EC80D9 /* TablesView.swift in Sources */,
 				50862DA32A6466D900FBF4A6 /* Logo.swift in Sources */,
 				50D3B8542A70203700EC80D9 /* Allergy.swift in Sources */,
@@ -427,6 +474,7 @@
 				50D3B84E2A6CA32900EC80D9 /* Menu.swift in Sources */,
 				50862DB22A646DB100FBF4A6 /* LoginView.swift in Sources */,
 				5085D79B2A7066C1000BAFC2 /* WineList.swift in Sources */,
+				50B594712A76D998006B3927 /* DrinkItem.swift in Sources */,
 				50D3B8402A6C82CD00EC80D9 /* User.swift in Sources */,
 				509017D82A64655D007F0FFE /* waitersApp.swift in Sources */,
 				502AB8AF2A6472D800D59CF6 /* InputField.swift in Sources */,
