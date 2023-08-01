@@ -9,36 +9,54 @@ import SwiftUI
 
 struct SelecterCellView: View {
     @State var active = false
-    var content: String
     
-
-    init(content: String) {
-        self.content = content
+    var color: Color {
+        return active ? .green : .gray
+    }
+    
+    var foodItemType: FoodItemType
+    @ObservedObject var selectorModel: SelectorModel
+    
+    init(foodItemType: FoodItemType, selectorModel: SelectorModel) {
+        self.foodItemType = foodItemType
+        self.selectorModel = selectorModel
     }
     
     var body: some View {
-        ZStack {
-            if self.active {
-                RoundedRectangle(cornerRadius: 10000)
-                    .foregroundColor(Color(UIColor.systemGray4))
-            } else {
-                RoundedRectangle(cornerRadius: 10000)
-                    .foregroundColor(.white)
-            }
-            RoundedRectangle(cornerRadius: 10000)
-                .stroke(lineWidth: 2)
-            Text(self.content)
-                .padding()
-        }
-        .onTapGesture {
+        Button(self.foodItemType.rawValue) {
             self.active.toggle()
+            if self.active {
+                self.selectorModel.addFoodItem(type: self.foodItemType)
+            } else {
+                self.selectorModel.removeFoodItem(type: self.foodItemType)
+            }
+            
         }
-        .fixedSize()
+        .buttonStyle(.bordered)
+//        .controlSize(.large)
+        .buttonStyle(.bordered)
+        .tint(self.color)
     }
-}
-
-struct SelecterCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelecterCellView(content: "content")
+    
+    struct SelecterCellView_Previews: PreviewProvider {
+        static var previews: some View {
+            
+            VStack {
+                SelecterCellView(foodItemType: .antipasti, selectorModel: SelectorModel())
+                    .padding(.bottom, 40)
+                ScrollView (.horizontal, showsIndicators: false) {
+                    HStack (spacing: 5) {
+                        ForEach(FoodItemType.allCases, id: \.rawValue) { foodItemType in
+                            SelecterCellView(foodItemType: foodItemType, selectorModel: SelectorModel())
+                        }
+                        
+                        // todo: add drinks to menu
+                        
+                        
+                    }
+                }
+                .padding(.horizontal, 5)
+            }
+        }
     }
 }

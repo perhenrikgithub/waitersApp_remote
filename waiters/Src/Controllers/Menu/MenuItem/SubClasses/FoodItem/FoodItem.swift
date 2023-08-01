@@ -12,6 +12,8 @@ enum FoodItemType: String, CaseIterable {
     case antipasti = "Antipasti"
     case zuppe = "Zuppe"
     case pizza = "Pizza"
+    case seafood = "Seafood"
+    case dessert = "Dessert"
     case other = "Other"
 }
 

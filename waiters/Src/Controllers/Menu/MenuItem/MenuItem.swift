@@ -14,6 +14,9 @@ class MenuItem: Identifiable {
     private var _price: Double
     private var _allergens: [Allergy]?
     
+    private var _orderAmount = 0
+    private var _orderComment = ""
+    
     init(
         name: String,
         description: String?,
@@ -59,6 +62,36 @@ class MenuItem: Identifiable {
         }
         set {
             _allergens = newValue
+        }
+    }
+    
+    var orderAmount: Int {
+        get {
+            return _orderAmount
+        }
+        set {
+            if newValue >= 0 {
+                _orderAmount = newValue
+            }
+        }
+    }
+    
+    func increaseOrderAmount() {
+        _orderAmount += 1
+    }
+    
+    func decreaseOrderAmount() {
+        if _orderAmount > 0 {
+            _orderAmount -= 1
+        }
+    }
+    
+    var orderComment: String {
+        get {
+            return _orderComment
+        }
+        set {
+            _orderComment = newValue
         }
     }
     
