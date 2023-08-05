@@ -12,12 +12,25 @@ class Table: Equatable {
     private var capacity: Int
     private var isReserved: Bool
     private var isByWindow: Bool
+    private var connectedOrder = Order()
     
     init(tableNumber: Int, capacity: Int, isReserved: Bool, isByWindow: Bool) {
         self.tableNumber = tableNumber
         self.capacity = capacity
         self.isReserved = isReserved
         self.isByWindow = isByWindow
+    }
+    
+    func getConnectedOrder() -> Order {
+        return self.connectedOrder
+    }
+    
+    func addOrderLine(line: OrderLine) {
+        self.connectedOrder.addOrderLine(line: line)
+    }
+    
+    func addOrderLine(lines: [OrderLine]) {
+        self.connectedOrder.addOrderLine(lines: lines)
     }
     
     func getTableNumber() -> Int {

@@ -26,6 +26,9 @@
 		509017DF2A64655E007F0FFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509017DE2A64655E007F0FFE /* Preview Assets.xcassets */; };
 		50A5BE1D2A76E09600917F01 /* BeerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5BE1C2A76E09600917F01 /* BeerItem.swift */; };
 		50A5BE202A771F6F00917F01 /* SelectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5BE1F2A771F6F00917F01 /* SelectorModel.swift */; };
+		50A5BE232A79D5DC00917F01 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5BE222A79D5DC00917F01 /* Order.swift */; };
+		50A5BE272A79D76F00917F01 /* OrderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5BE262A79D76F00917F01 /* OrderLine.swift */; };
+		50A5BE292A7AA7DD00917F01 /* OrderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5BE282A7AA7DD00917F01 /* OrderLineView.swift */; };
 		50B5946F2A76D54D006B3927 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5946E2A76D54D006B3927 /* FoodItem.swift */; };
 		50B594712A76D998006B3927 /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B594702A76D998006B3927 /* DrinkItem.swift */; };
 		50D3B8152A64917B00EC80D9 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B8142A64917B00EC80D9 /* UserView.swift */; };
@@ -70,6 +73,9 @@
 		509017DE2A64655E007F0FFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50A5BE1C2A76E09600917F01 /* BeerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerItem.swift; sourceTree = "<group>"; };
 		50A5BE1F2A771F6F00917F01 /* SelectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorModel.swift; sourceTree = "<group>"; };
+		50A5BE222A79D5DC00917F01 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		50A5BE262A79D76F00917F01 /* OrderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLine.swift; sourceTree = "<group>"; };
+		50A5BE282A7AA7DD00917F01 /* OrderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLineView.swift; sourceTree = "<group>"; };
 		50B5946E2A76D54D006B3927 /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		50B594702A76D998006B3927 /* DrinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItem.swift; sourceTree = "<group>"; };
 		50D3B8142A64917B00EC80D9 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -131,7 +137,6 @@
 				50862DA62A646B0A00FBF4A6 /* LoginModule */,
 				50862DA72A646C1B00FBF4A6 /* TablesModule */,
 				50862DA82A646C2800FBF4A6 /* SpecificTableModule */,
-				50862DA92A646C3600FBF4A6 /* NewOrderView */,
 				50862DAA2A646C4000FBF4A6 /* Menu */,
 				50862DAC2A646C6600FBF4A6 /* UserView */,
 			);
@@ -163,13 +168,6 @@
 				50D3B8312A66D83100EC80D9 /* SpecificTableView.swift */,
 			);
 			path = SpecificTableModule;
-			sourceTree = "<group>";
-		};
-		50862DA92A646C3600FBF4A6 /* NewOrderView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NewOrderView;
 			sourceTree = "<group>";
 		};
 		50862DAA2A646C4000FBF4A6 /* Menu */ = {
@@ -287,6 +285,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		50A5BE212A79D5CA00917F01 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				50A5BE222A79D5DC00917F01 /* Order.swift */,
+				50A5BE262A79D76F00917F01 /* OrderLine.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 		50D3B81F2A64C3D900EC80D9 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				50D3B8342A66DE2100EC80D9 /* SeatingImage.swift */,
+				50A5BE282A7AA7DD00917F01 /* OrderLineView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 		50D3B83A2A6C820100EC80D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				50A5BE212A79D5CA00917F01 /* Order */,
 				50D3B84A2A6C9E5B00EC80D9 /* Menu */,
 				50D3B83E2A6C82BC00EC80D9 /* User */,
 				50D3B8432A6C867E00EC80D9 /* Tables */,
@@ -472,6 +481,7 @@
 				50D3B8452A6C869700EC80D9 /* Table.swift in Sources */,
 				50D3B8502A6CA52400EC80D9 /* MenuView.swift in Sources */,
 				50D3B8352A66DE2100EC80D9 /* SeatingImage.swift in Sources */,
+				50A5BE292A7AA7DD00917F01 /* OrderLineView.swift in Sources */,
 				502AB8B12A64730500D59CF6 /* LoginButton.swift in Sources */,
 				5038D59F2A7086D2009F1839 /* addItemButton.swift in Sources */,
 				509017DA2A64655D007F0FFE /* ContentView.swift in Sources */,
@@ -483,12 +493,14 @@
 				50D3B8542A70203700EC80D9 /* Allergy.swift in Sources */,
 				50A5BE202A771F6F00917F01 /* SelectorModel.swift in Sources */,
 				50D3B8322A66D83100EC80D9 /* SpecificTableView.swift in Sources */,
+				50A5BE272A79D76F00917F01 /* OrderLine.swift in Sources */,
 				50D3B84E2A6CA32900EC80D9 /* Menu.swift in Sources */,
 				50862DB22A646DB100FBF4A6 /* LoginView.swift in Sources */,
 				5085D79B2A7066C1000BAFC2 /* WineList.swift in Sources */,
 				50B594712A76D998006B3927 /* DrinkItem.swift in Sources */,
 				50D3B8402A6C82CD00EC80D9 /* User.swift in Sources */,
 				509017D82A64655D007F0FFE /* waitersApp.swift in Sources */,
+				50A5BE232A79D5DC00917F01 /* Order.swift in Sources */,
 				502AB8AF2A6472D800D59CF6 /* InputField.swift in Sources */,
 				50D3B8252A64C60A00EC80D9 /* SideMenuMenuView.swift in Sources */,
 			);

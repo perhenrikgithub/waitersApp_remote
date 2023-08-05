@@ -8,15 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+    @State private var users = ["Paul", "Taylor", "Adele"]
+    @State private var isTrue = false
+    private var color: Color {
+        return isTrue ? .green : .red
     }
+    
+
+        var body: some View {
+            NavigationStack {
+                List {
+                    ForEach(users, id: \.self) { user in
+                        Text(user)
+                    }
+                    .onDelete(perform: delete)
+                }
+                .navigationTitle("Users")
+            }
+        }
+
+        func delete(at offsets: IndexSet) {
+            users.remove(atOffsets: offsets)
+        }
 }
 
 struct ContentView_Previews: PreviewProvider {

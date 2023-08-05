@@ -58,6 +58,24 @@ class FoodItem: MenuItem {
             allergens: allergens
         )
     }
+    
+    init(price: Double) {
+        _isVegetarian = false
+        _isVegan = false
+        _type = .pasta
+        _winePairings = []
+        _course = .main
+        
+        super.init(
+            name: "Truffle Carbonara",
+            description: "Handcrafted truffle-infused pasta with organic eggs, aged Pecorino Romano, crispy pancetta, and freshly ground black truffle.",
+            price: price,
+            allergens: [
+                Allergy(allergyType: .eggs, canBeMadeWithout: true),
+                Allergy(allergyType: .gluten, canBeMadeWithout: true)
+            ]
+        )
+    }
 
     var isVegetarian: Bool {
         get {

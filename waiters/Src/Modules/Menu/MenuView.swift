@@ -24,10 +24,12 @@ func priceStringifier(price: Double) -> String {
 struct MenuView: View {
     @StateObject var selectorModel = SelectorModel()
     
-    var menu: Menu
+    private var menu: Menu
+    private var connectedTable: Table
     
-    init(menu: Menu) {
+    init(menu: Menu, connectedTable: Table) {
         self.menu = menu
+        self.connectedTable = connectedTable
     }
     
     var body: some View {
@@ -36,7 +38,7 @@ struct MenuView: View {
                 Header()
                 HStack {
                     NavigationLink {
-                        SpecificTableView().navigationBarBackButtonHidden(true)
+                        SpecificTableView(table: self.connectedTable).navigationBarBackButtonHidden(true)
                     } label: {
                         Image(systemName: "chevron.left")
                             .padding(.vertical, 5)
@@ -233,7 +235,7 @@ struct MenuView_Previews: PreviewProvider {
             FoodItem(
                 isVegetarian: true,
                 isVegan: false,
-                type: .other,
+                type: .dessert,
                 course: .dessert,
                 name: "Tiramisu",
                 description: "Classic Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cheese.",
@@ -265,6 +267,6 @@ struct MenuView_Previews: PreviewProvider {
             )
         ]
         )
-        MenuView(menu: menu)
+        MenuView(menu: menu, connectedTable: Table(tableNumber: 9, capacity: 9, isReserved: true, isByWindow: true))
     }
 }

@@ -21,7 +21,7 @@ struct Header: View {
                     }
                     .navigationBarBackButtonHidden(true)
                 }
-                Logo(fontSize: 28, fontColor: Color(.red))
+                Logo(fontSize: 28, fontColor: Color(.red), spacing: 6)
             }
             .frame(width: UIScreen.main.bounds.width, height: 30)
             Rectangle()
