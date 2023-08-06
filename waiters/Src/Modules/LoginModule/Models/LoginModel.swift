@@ -12,7 +12,9 @@ class LoginModel: ObservableObject {
     @Published var username = ""
     @Published var password = ""
     
-    init() {}
+    init() {
+        
+    }
     
     func login() -> Bool {
         if self.username == "user" && self.password == "1234" {

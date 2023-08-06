@@ -7,18 +7,22 @@
 
 import Foundation
 
-class Table: Equatable {
-    private var tableNumber: Int
-    private var capacity: Int
-    private var isReserved: Bool
-    private var isByWindow: Bool
+class Table: Equatable, Identifiable {
+    
+    private var _tableNumber: Int
+    private var _capacity: Int
+    private var _isReserved: Bool
+    private var _isByWindow: Bool
+    private var _status: TableStatus
+    
     private var connectedOrder = Order()
     
-    init(tableNumber: Int, capacity: Int, isReserved: Bool, isByWindow: Bool) {
-        self.tableNumber = tableNumber
-        self.capacity = capacity
-        self.isReserved = isReserved
-        self.isByWindow = isByWindow
+    init(tableNumber: Int, capacity: Int, isReserved: Bool, isByWindow: Bool, status: TableStatus = .available) {
+        self._tableNumber = tableNumber
+        self._capacity = capacity
+        self._isReserved = isReserved
+        self._isByWindow = isByWindow
+        self._status = status
     }
     
     func getConnectedOrder() -> Order {
@@ -33,23 +37,56 @@ class Table: Equatable {
         self.connectedOrder.addOrderLine(lines: lines)
     }
     
-    func getTableNumber() -> Int {
-        return self.tableNumber
+    var status: TableStatus {
+        get {
+            return _status
+        }
+        set {
+            _status = newValue
+        }
     }
     
-    func getCapacity() -> Int {
-        return self.capacity
+    var tableNumber: Int {
+        get {
+            return _tableNumber
+        }
+        set {
+            _tableNumber = newValue
+        }
     }
     
-    func isTableReserved() -> Bool {
-        return self.isReserved
+    var capacity: Int {
+        get {
+            return _capacity
+        }
+        set {
+            _capacity = newValue
+        }
     }
     
-    func isTableByWindow() -> Bool {
-        return self.isByWindow
+    var isReserved: Bool {
+        get {
+            return _isReserved
+        }
+        set {
+            _isReserved = newValue
+        }
     }
     
-    static func == (table1: Table, table2: Table) -> Bool {
-        return table1.getTableNumber() == table2.getTableNumber()
+    var isByWindow: Bool {
+        get {
+            return _isReserved
+        }
+        set {
+            _isReserved = newValue
+        }
+    }
+    
+    static func == (lhs: Table, rhs: Table) -> Bool {
+        return lhs._tableNumber == rhs._tableNumber &&
+               lhs._capacity == rhs._capacity &&
+               lhs._isReserved == rhs._isReserved &&
+               lhs._isByWindow == rhs._isByWindow &&
+               lhs._status == rhs._status
     }
 }

@@ -47,7 +47,7 @@ struct LoginView: View {
                     }
                     .background(
                         NavigationLink(
-                            destination: TablesView()
+                            destination: TableListView(user: User(username: "", userID: 0))
                                 .navigationBarBackButtonHidden(true), // Hide the "< Back" button
                             tag: true,
                             selection: $shouldNavigate

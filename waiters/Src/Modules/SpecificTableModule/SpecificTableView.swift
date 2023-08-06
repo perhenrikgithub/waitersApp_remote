@@ -24,11 +24,13 @@ struct SpecificTableView: View {
                     Header()
                     
                     HStack {
-                        NavigationLink(destination: TablesView()) {
+                        NavigationLink(
+                            destination: TableListView(user: User(username: "", userID: 0))
+                                .navigationBarBackButtonHidden(true) // Hide the back button label
+                        ) {
                             Image(systemName: "chevron.backward")
-                            Text("Table #\(self.table.getTableNumber())")
+                            Text("Table #\(self.table.tableNumber)")
                         }
-                        .navigationBarBackButtonHidden(true) // Hide the back button label
                         .foregroundColor(Color("MainText"))
                         .font(.system(size: 24))
                         
@@ -39,7 +41,7 @@ struct SpecificTableView: View {
                     
                     // main area
                     VStack (spacing: 0) {
-                        SeatingImage(numberOfChairs: self.table.getCapacity())
+                        SeatingImage(numberOfChairs: self.table.capacity)
                         ScrollView {
                             if !self.order.hasAnyOrders() {
                                 Text("No orders yet")
@@ -69,9 +71,6 @@ struct SpecificTableView: View {
 
 
 struct SpecificTableView_Previews: PreviewProvider {
-    
-    
-    
     static var previews: some View {
         let table1 = Table(tableNumber: 14, capacity: 9, isReserved: true, isByWindow: true)
         let food = FoodItem(price: 27.99)

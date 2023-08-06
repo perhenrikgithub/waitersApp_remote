@@ -41,8 +41,17 @@ struct HamburgerMenu: View {
 
 struct HamburgerMenu_Previews: PreviewProvider {
     static var previews: some View {
-        HamburgerMenu() {
-            print("- - -")
+        // 'your tables' line
+        HStack {
+            Text("Your Tables")
+                .font(.system(size: CGFloat(52)))
+            Spacer()
+            
+            HamburgerMenu() {
+                print("- - -")
+            }
         }
+        .padding(.horizontal)
+        .foregroundColor(Color("MainText"))
     }
 }

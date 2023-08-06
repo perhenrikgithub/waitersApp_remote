@@ -7,34 +7,29 @@
 
 import SwiftUI
 
-struct YourTablesTableView: View {
-    var tableNumber: String
-    var tableStatus: TableStatus
-    var view: AnyView
+struct TableListItemView: View {
+    private var table: Table
     
-    init(tableNumber: Int, tableStatus: TableStatus, view: any View) {
-        if String(tableNumber).count == 1 {
-            self.tableNumber = "0" + String(tableNumber)
-        } else {
-            self.tableNumber = String(tableNumber)
-        }
-        self.tableStatus = tableStatus
-        self.view = AnyView(view)
+    init(table: Table) {
+        self.table = table
     }
     
     var body: some View {
-        NavigationLink(destination: self.view) {
+        NavigationLink(
+            destination: SpecificTableView(table: self.table)
+                .navigationBarBackButtonHidden(true) // Hide the back button label
+        ) {
             HStack {
                 VStack(spacing: 3) {
                     HStack {
                         Text("Table")
                         Spacer()
-                        Text("#" + self.tableNumber)
+                        Text("#" + String(self.table.tableNumber))
                     }
                     .font(.system(size: 32))
                     .padding(.horizontal, 5)
                     
-                    StatusCell(status: self.tableStatus)
+                    StatusCell(status: self.table.status)
                 }
                 .frame(width: 175)
                 
@@ -47,13 +42,19 @@ struct YourTablesTableView: View {
             .padding(.horizontal)
             .foregroundColor(Color("MainText"))
         }
+        
     }
 }
 
 
 
-struct YourTablesTableView_Previews: PreviewProvider {
+struct TableListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        YourTablesTableView(tableNumber: 1, tableStatus: .ordered, view: AnyView(UserView()))
+        
+        let t = Table(tableNumber: 4, capacity: 4, isReserved: true, isByWindow: true)
+        
+        return NavigationView {
+            TableListItemView(table: t)
+        }
     }
 }

@@ -8,26 +8,49 @@
 import Foundation
 
 class User: Equatable {
-    private var username: String
-    private var userID: Int
-    private var isAdmin: Bool
+    private var _username: String
+    private var _userID: Int
+    private var _isAdmin: Bool
+    private var _tables: [Table]
     
-    init(username: String, userID: Int, isAdmin: Bool = false) {
-        self.username = username
-        self.userID = userID
-        self.isAdmin = isAdmin
+    init(username: String, userID: Int, isAdmin: Bool = false, tables: [Table] = []) {
+        self._username = username
+        self._userID = userID
+        self._isAdmin = isAdmin
+        self._tables = tables
     }
     
-    func getUsername() -> String {
-        return self.username
+    func addTable(table: Table) {
+        if !_tables.contains(table) {
+            self._tables.append(table)
+        }
+    }
+    func addTable(tables: [Table]) {
+        for table in tables {
+            if !_tables.contains(table) {
+                self._tables.append(table)
+            }
+        }
     }
     
-    func getUserID() -> Int {
-        return self.userID
+    func removeTable(table: Table) {
+        self._tables.removeAll {$0 == table}
     }
     
-    func isUserAdmin() -> Bool {
-        return self.isAdmin
+    var tables: [Table] {
+        return self._tables
+    }
+    
+    var username: String {
+        return self._username
+    }
+    
+    var userID: Int {
+        return self._userID
+    }
+    
+    var isAdmin: Bool {
+        return self._isAdmin
     }
     
     static func == (user1: User, user2: User) -> Bool {

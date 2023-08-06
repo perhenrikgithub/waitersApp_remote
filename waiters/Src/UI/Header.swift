@@ -8,18 +8,28 @@
 import SwiftUI
 
 struct Header: View {
+    private var showProfileIcon: Bool
+    
+    init(showProfileIcon: Bool = false) {
+        self.showProfileIcon = showProfileIcon
+    }
+    
     var body: some View {
         VStack {
             ZStack {
-                HStack {
-                    Spacer()
-                    NavigationLink (destination: UserView().navigationBarBackButtonHidden(true)) {
-                        Image(systemName: "person.circle")
-                            .font(.system(size: CGFloat(28)))
-                            .foregroundColor(Color("MainText"))
-                            .padding(.horizontal)
+                if showProfileIcon {
+                    HStack {
+                        Spacer()
+                        NavigationLink (
+                            destination: UserView().navigationBarBackButtonHidden(true)
+                        ) {
+                            Image(systemName: "person.circle")
+                                .font(.system(size: CGFloat(28)))
+                                .foregroundColor(Color("MainText"))
+                                .padding(.horizontal)
+                        }
+                        .navigationBarBackButtonHidden(true)
                     }
-                    .navigationBarBackButtonHidden(true)
                 }
                 Logo(fontSize: 28, fontColor: Color(.red), spacing: 6)
             }
@@ -34,7 +44,7 @@ struct Header: View {
 struct Header_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Header()
+            Header(showProfileIcon: true)
             Spacer()
         }
     }

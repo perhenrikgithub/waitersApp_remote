@@ -9,7 +9,13 @@ import SwiftUI
 
 
 
-struct TablesView: View {
+struct TableListView: View {
+
+    private var user: User
+    
+    init(user: User) {
+        self.user = user
+    }
     
     // side menu
     @State var menuWidth = 0.67
@@ -28,34 +34,28 @@ struct TablesView: View {
             ZStack {
                 ZStack {
                     // main content
-                    VStack(spacing: 0) { // Add spacing: 0 to remove any spacing between VStack's child views
-                        Header()
+                    VStack (spacing: 0) {
+                        Header(showProfileIcon: true)
                         
                         // 'your tables' line
                         HStack {
                             Text("Your Tables")
                                 .font(.system(size: CGFloat(52)))
                             Spacer()
+                            
                             HamburgerMenu() {
                                 toggleMenu()
                             }
                         }
                         .padding(.horizontal)
+                        .padding(.top, 10)
                         .foregroundColor(Color("MainText"))
                         
                         ScrollView {
                             VStack {
-                                YourTablesTableView(tableNumber: 4, tableStatus: .available, view: ContentView())
-                                YourTablesTableView(tableNumber: 12, tableStatus: .ordered, view: ContentView())
-                                YourTablesTableView(tableNumber: 9, tableStatus: .seated, view: ContentView())
-                                YourTablesTableView(tableNumber: 4, tableStatus: .available, view: ContentView())
-                                YourTablesTableView(tableNumber: 12, tableStatus: .ordered, view: ContentView())
-                                YourTablesTableView(tableNumber: 9, tableStatus: .seated, view: ContentView())
-                                YourTablesTableView(tableNumber: 4, tableStatus: .available, view: ContentView())
-                                YourTablesTableView(tableNumber: 12, tableStatus: .ordered, view: ContentView())
-                                YourTablesTableView(tableNumber: 12, tableStatus: .ordered, view: ContentView())
-                                YourTablesTableView(tableNumber: 12, tableStatus: .ordered, view: ContentView())
-                                
+                                ForEach(self.user.tables) {table in
+                                    TableListItemView(table: table)
+                                }
                             }
                             .padding(.vertical) // Add some vertical padding between the table views
                         }
@@ -111,6 +111,7 @@ struct TablesView: View {
                                 
                                 ScrollView {
                                     VStack {
+                                        // for each table that is not in 'your tables'
                                         AddTableTableView(tableNumber: 2, seatingCapacity: 5, tableHasWaiter: false)
                                         AddTableTableView(tableNumber: 25, seatingCapacity: 5, tableHasWaiter: false)
                                         AddTableTableView(tableNumber: 6, seatingCapacity: 25, tableHasWaiter: false)
@@ -132,8 +133,17 @@ struct TablesView: View {
     }
 }
 
-struct TablesView_Previews: PreviewProvider {
+struct TableListView_Previews: PreviewProvider {
     static var previews: some View {
-        TablesView()
+        let user = User(username: "user1", userID: 0)
+        let t1 = Table(tableNumber: 1, capacity: 1, isReserved: false, isByWindow: false)
+        let t2 = Table(tableNumber: 2, capacity: 9, isReserved: false, isByWindow: false, status: .seated)
+        let t3 = Table(tableNumber: 3, capacity: 1, isReserved: false, isByWindow: false, status: .ordered)
+        let t4 = Table(tableNumber: 4, capacity: 1, isReserved: false, isByWindow: false, status: .served)
+        let t5 = Table(tableNumber: 5, capacity: 1, isReserved: false, isByWindow: false, status: .paid)
+        
+        user.addTable(tables: [t1, t2, t3, t4, t5])
+        
+        return TableListView(user: user)
     }
 }
